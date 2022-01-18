@@ -11,7 +11,6 @@
 #include <zlib.h>
 #include "vector"
 
-
 void print(std::string to_print){
     std::cout << to_print << std::endl;
 }
@@ -52,7 +51,7 @@ std::vector< char > readline( gzFile f ) {
 
 
 void alg_of_read_left(std::string seq, std::string qual){
-    for (int i = 30; i < seq.length()-30; ++i) {
+    for (int i = unic_nuc; i < seq.length()-unic_nuc; ++i) {
         float er = 0;
         bool flag = true;
         for (int j = 0; j < thresd1_find.length(); ++j) {
@@ -76,7 +75,7 @@ void alg_of_read_left(std::string seq, std::string qual){
 }
 
 void alg_of_read_left_rev(std::string seq, std::string qual){
-    for (int i = 30; i < seq.length()-30; ++i) {
+    for (int i = unic_nuc; i < seq.length()-unic_nuc; ++i) {
         float er = 0;
         bool flag = true;
         for (int j = 0; j < thresd2_find.length(); ++j) {
@@ -101,7 +100,7 @@ void alg_of_read_left_rev(std::string seq, std::string qual){
 
 
 void alg_of_read_rigt(std::string seq, std::string qual){
-    for (int i = 0; i < seq.length()-60; ++i) {
+    for (int i = 0; i < seq.length()-2*unic_nuc; ++i) {
         float er = 0;
         bool flag = true;
         for (int j = 0; j < thresd3_find.length(); ++j) {
@@ -125,7 +124,7 @@ void alg_of_read_rigt(std::string seq, std::string qual){
 }
 
 void alg_of_read_rigt_rev(std::string seq, std::string qual){
-    for (int i = 0; i < seq.length()-60; ++i) {
+    for (int i = 0; i < seq.length()-2*unic_nuc; ++i) {
         float er = 0;
         bool flag = true;
         for (int j = 0; j < thresd4_find.length(); ++j) {
